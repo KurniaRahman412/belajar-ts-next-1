@@ -1,10 +1,15 @@
 // src/app/page.tsx
 import KartuPengantin from "../components/KartuPengantin";
 import { dataUndangan } from "../data";
+import Sampul from "../components/Sampul";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-stone-100 p-8 flex flex-col items-center gap-8">
+        <Sampul
+        namaPria={dataUndangan.pria.namaPanggilan}
+        namaWanita={dataUndangan.wanita.namaPanggilan}
+        />
       <h1 className="text-4xl font-serif text-stone-900 mb-8">Undangan Pernikahan</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
