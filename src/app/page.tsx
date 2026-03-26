@@ -3,6 +3,7 @@ import KartuPengantin from "../components/KartuPengantin";
 import { dataUndangan } from "../data";
 import Sampul from "../components/Sampul";
 import FormUcapan from "../components/KartuUcapan";
+import DaftarUcapan from "../components/DaftarUcapan";
 
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
 
       <div>
         <FormUcapan/>
+        <DaftarUcapan/>
       </div>
     </main>
   );
