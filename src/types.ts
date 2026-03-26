@@ -19,3 +19,10 @@ export interface UndanganData {
     resepsi: Acara;
     quotes?: string;
 }
+
+export interface Ucapan {
+    id: string;
+    nama: string;
+    pesan: string;
+    status: "Hadir" | "Tidak Hadir";
+}

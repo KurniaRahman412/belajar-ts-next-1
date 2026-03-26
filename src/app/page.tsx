@@ -2,6 +2,8 @@
 import KartuPengantin from "../components/KartuPengantin";
 import { dataUndangan } from "../data";
 import Sampul from "../components/Sampul";
+import FormUcapan from "../components/KartuUcapan";
+
 
 export default function Home() {
   return (
@@ -25,11 +27,14 @@ export default function Home() {
         />
       </div>
 
-      {/* Latihan: Coba tampilkan lokasi akad di bawah sini */}
-      <div className="mt-12 p-6 bg-white rounded-xl shadow-sm text-center">
+      <div className="mt-12 p-6 bg-white rounded-xl shadow-md text-center">
         <h3 className="font-bold text-amber-700">Akad Nikah</h3>
-        <p>{dataUndangan.akad.tanggal}</p>
-        <p>{dataUndangan.akad.lokasi}</p>
+        <p className="text-black pt-2">{dataUndangan.akad.tanggal}</p>
+        <p className="text-black">{dataUndangan.akad.lokasi}</p>
+      </div>
+
+      <div>
+        <FormUcapan/>
       </div>
     </main>
   );
