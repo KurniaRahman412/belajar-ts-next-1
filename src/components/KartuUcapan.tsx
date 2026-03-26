@@ -1,25 +1,38 @@
 "use client"
 
 import { useState } from "react"
+import { supabase } from "../lib/supabase";
 
 export default function FormUcapan() {
     const [nama, setNama] = useState<string>("");
     const [pesan, setPesan] = useState<string>("");
     const [status, setStatus] = useState<"Hadir" | "Tidak Hadir">("Hadir");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const ucapanBaru = {
-            id: Date.now().toString(),
-            nama, pesan, status
-        };
-        console.log("Mengirim Ucapan : ", ucapanBaru);
-        alert("Terima kasih atas ucapannya! :D");
+        const {data, error} = await supabase
+        .from("Ucapan")
+        .insert([
+            {
+            nama: nama,
+            pesan: pesan,
+            status: status
+            },
+        ])
+        
+        if (error) {
+            console.error("Error menyimpan data: ", error.message);
+            alert("Gagal mengirim ucapan!");
 
-        // Reset Form
-        setNama("");
-        setPesan("");
+        } else {
+            alert("Terima kasih atas ucapannya! :D");
+            
+            // Reset Form
+            setNama("");
+            setPesan("");
+        }
+
     }
     return(
         <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-6 rounded-xl shadow-xl space-y-4">
